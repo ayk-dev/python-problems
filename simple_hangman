@@ -11,7 +11,7 @@ chosen_word = random.choice(word_list)
 #TODO-3 - Check if the letter the user guessed (guess) is one of the letters in the chosen_word.
 word_lenght = len(chosen_word)
 lives = word_lenght
-word_to_guess = list(word_lenght * '_')
+word_to_guess = ["_" for letter in chosen_word]
 
 while True:
   if lives < 0 or '_' not in word_to_guess:
