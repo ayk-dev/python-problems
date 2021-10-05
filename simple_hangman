@@ -9,8 +9,9 @@ chosen_word = random.choice(word_list)
 #TODO-2 - Ask the user to guess a letter and assign their answer to a variable called guess. Make guess lowercase.
 
 #TODO-3 - Check if the letter the user guessed (guess) is one of the letters in the chosen_word.
-lives = len(chosen_word)
-word_to_guess = list(len(chosen_word) * '_')
+word_lenght = len(chosen_word)
+lives = word_lenght
+word_to_guess = list(word_lenght * '_')
 
 while True:
   if lives < 0 or '_' not in word_to_guess:
@@ -20,7 +21,7 @@ while True:
     lives -= 1
     print('Wrong, keep going')
   else:
-    for i in range(len(chosen_word)):
+    for i in range(word_lenght):
       if guess == chosen_word[i]:
         word_to_guess[i] = guess
     print('Right guess')
