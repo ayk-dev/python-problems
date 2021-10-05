@@ -13,9 +13,9 @@ word_lenght = len(chosen_word)
 lives = word_lenght
 word_to_guess = ["_" for letter in chosen_word]
 
-while True:
-  if lives < 0 or '_' not in word_to_guess:
-    break
+game_over = False
+
+while not game_over:
   guess = input('Guess a letter: ').lower()
   if guess not in chosen_word:
     lives -= 1
@@ -25,9 +25,10 @@ while True:
       if guess == chosen_word[i]:
         word_to_guess[i] = guess
     print('Right guess')
-  
+  if lives < 0 or '_' not in word_to_guess:
+    game_over = True
   print(''.join(word_to_guess))
-  print(f'Lives left: {lives}')
+  print(f'Lives left: {lives}\n')
 
 
 if lives > 0:
