@@ -23,7 +23,7 @@ def play_game():
   print("Welcome to the Number Guessing Game!")
   print("I'm thinking of a number between 1 and 100.")
   answer = choose_a_number()
-  print(f"Pssst the correct answer is {answer}")
+  # print(f"Pssst the correct answer is {answer}")
   
   print("Choose a difficulty. Type 'easy' or 'hard':", end=" ")
   difficulty = input()
