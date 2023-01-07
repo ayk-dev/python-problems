@@ -5,7 +5,7 @@ EASY_LEVEL_ATTEMPTS = 10
 HARD_LEVEL_ATTEMPTS = 5
 
 def choose_a_number():
-  return randint(1, 101)
+  return randint(1, 100)
 
 
 def set_attempts(diff):
