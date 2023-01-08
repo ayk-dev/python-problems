@@ -1,12 +1,11 @@
-from random import randint
+import random
 
 from art import logo, vs
 from game_data import data
 
 
 def get_random_data():
-    rand_idx = randint(0, len(data) - 1)
-    return data[rand_idx]
+    return random.choice(data)
 
 
 def play_game():
