@@ -15,7 +15,7 @@ def play_game():
     print(f'Compare A: {comp_a["name"]}, a {comp_a["description"]}, from {comp_a["country"]}.')
     print(vs)
     comp_b = get_random_data()
-    print(f'Compare B: {comp_b["name"]}, a {comp_b["description"]}, from {comp_b["country"]}.')
+    print(f'Against B: {comp_b["name"]}, a {comp_b["description"]}, from {comp_b["country"]}.')
     result = 'a' if comp_a["follower_count"] > comp_b["follower_count"] else 'b'
     guess = input("Who has more followers? Type 'A' or 'B': ").lower()
 
@@ -27,7 +27,7 @@ def play_game():
         comp_b = get_random_data()
         print(f'Compare A: {comp_a["name"]}, a {comp_a["description"]}, from {comp_a["country"]}.')
         print(vs)
-        print(f'Compare B: {comp_b["name"]}, a {comp_b["description"]}, from {comp_b["country"]}.')
+        print(f'Against B: {comp_b["name"]}, a {comp_b["description"]}, from {comp_b["country"]}.')
         result = 'a' if comp_a["follower_count"] > comp_b["follower_count"] else 'b'
         guess = input("Who has more followers? Type 'A' or 'B': ").lower()
 
