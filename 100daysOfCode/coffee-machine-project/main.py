@@ -17,14 +17,19 @@ def resources_insufficient(choice, menu, resrcs):
     return False
 
 
-def process_money(qs, ds, ns, ps, menu, choice):
-    """If inserted money by user is enough, returns change, else return None if money is refunded"""
+def process_money(qs, ds, ns, ps, menu, choice, money):
+    """If inserted money by user is enough, returns change,
+    else return None if money is refunded. If successful, money is increased."""
     inserted_money = (qs * 25 + ds * 10 + ns * 5 + ps * 1) / 100
     if inserted_money >= menu[choice]["cost"]:
         change = inserted_money - menu[choice]["cost"]
+        money += inserted_money
         return change
     return None
 
+
+def prepare_drink(choice, menu, resrcs):
+    pass
 
 
 MENU = {
@@ -61,7 +66,6 @@ resources = {
 
 money = 0
 
-
 while True:
     user_input = input("What would you like? (espresso/latte/cappuccino):").lower()
 
@@ -74,13 +78,18 @@ while True:
 
     if not resources_insufficient(user_input, MENU, resources):
         print('Please insert coins.')
-        quaters = int(input("How many quarters?:"))
+        quarters = int(input("How many quarters?:"))
         dimes = int(input("How many dimes?:"))
         nickels = int(input("How many nickels?:"))
         pennies = int(input("How many pennies?:"))
-        process_money(quaters, dimes, nickels, pennies, MENU, user_input)
-        #TODO complete process money
-        #TODO prepare drink
+
+        change = process_money(quarters, dimes, nickels, pennies, MENU, user_input, money)
+        if change is not None:
+            print(f'Here is ${change} in change.')
+            prepare_drink(user_input, MENU, resources)
+        else:
+            print('Sorry, that\'s not enough money. Money refunded.')
+            continue
     else:
         print(f'Sorry, there is not enough {resources_insufficient(user_input, MENU, resources)}')
 
