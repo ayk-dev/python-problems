@@ -1,3 +1,16 @@
+def report(resrcs, money):
+    result = f'Water: {resrcs["water"]}ml\n'
+    result += f'Milk: {resrcs["milk"]}ml\n'
+    result += f'Coffee: {resrcs["coffee"]}gr\n'
+    result += f'Money: ${money}'
+    return result
+
+
+def are_resources_sufficient(choice, menu, resrcs):
+    for k, v in resrcs.items():
+        pass
+
+
 MENU = {
     "espresso": {
         "ingredients": {
@@ -29,4 +42,16 @@ resources = {
     "milk": 200,
     "coffee": 100,
 }
+
+money = 0
+while True:
+    user_input = input("What would you like? (espresso/latte/cappuccino):").lower()
+
+    if user_input == 'report':
+        print(report(resources, money))
+        continue
+
+    if user_input == 'off':
+        break
+
 
