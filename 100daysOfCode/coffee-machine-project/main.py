@@ -66,7 +66,7 @@ resources = {
 money = 0
 
 while True:
-    user_input = input("What would you like? (espresso/latte/cappuccino):").lower()
+    user_input = input("What would you like? (espresso/latte/cappuccino): ").lower()
 
     if user_input == 'report':
         print(report(resources, money))
