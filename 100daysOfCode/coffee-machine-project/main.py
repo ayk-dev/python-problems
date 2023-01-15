@@ -17,7 +17,7 @@ def resources_insufficient(choice, menu, resrcs):
     return False
 
 
-def process_money(qs, ds, ns, ps, menu, choice):
+def process_coins(qs, ds, ns, ps, menu, choice):
     """If inserted money by user is enough, returns change,
     else return None if money is refunded. If successful, money is increased."""
     inserted_money = (qs * 25 + ds * 10 + ns * 5 + ps * 1) / 100
@@ -65,6 +65,10 @@ resources = {
 
 money = 0
 
+#TODO add docstrings
+#TODO format money outputs
+
+
 while True:
     user_input = input("What would you like? (espresso/latte/cappuccino): ").lower()
 
@@ -86,7 +90,7 @@ while True:
     nickels = int(input("How many nickels?:"))
     pennies = int(input("How many pennies?:"))
 
-    inserted_money = process_money(quarters, dimes, nickels, pennies, MENU, user_input)
+    inserted_money = process_coins(quarters, dimes, nickels, pennies, MENU, user_input)
     if inserted_money is None:
         print('Sorry, that\'s not enough money. Money refunded.')
         continue
