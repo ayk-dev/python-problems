@@ -38,9 +38,7 @@ while game_on:
         board.game_over()
 
     # Detect if the snake collides it itself
-    for seg in snake.snake_segments:
-        if snake.head == seg:
-            continue
+    for seg in snake.snake_segments[1:]:
         if snake.head.distance(seg) < 10:
             game_on = False
             board.game_over()
